@@ -8,8 +8,7 @@ import time
 import re
 import urllib.request
 import json
-# 12003 12011 
-# AIzaSyBeqXhRTw2dNaVANmjRmKve6zrvqy_WMe0
+
 def setCoordinates(s):
     match = re.search(r"(?P<latitude>[+-][0-9]{2}(\.[0-9]+)?)(?P<longitude>[+-][0-9]{3}(\.[0-9]+)?)", s)
     return (match.group("latitude"), match.group("longitude"))
@@ -60,7 +59,7 @@ async def evaluateString(s):
               int(splitted[3])<=20 and
               int(splitted[3])>0):
             url = ("https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-                   "?key=AIzaSyBeqXhRTw2dNaVANmjRmKve6zrvqy_WMe0"
+                   "?key=INSERTAPIHERE"
                    "&location={},{}&radius={}").format(*setCoordinates(clients[splitted[1]][2]), float(splitted[2])*1000)
             response = json.load(urllib.request.urlopen(url))
             response["results"] = response["results"][:int(splitted[3])]
