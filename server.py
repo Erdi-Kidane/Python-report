@@ -8,7 +8,6 @@ import time
 import re
 import urllib.request
 import json
-
 def setCoordinates(s):
     match = re.search(r"(?P<latitude>[+-][0-9]{2}(\.[0-9]+)?)(?P<longitude>[+-][0-9]{3}(\.[0-9]+)?)", s)
     return (match.group("latitude"), match.group("longitude"))
